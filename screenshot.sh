@@ -8,7 +8,8 @@ while [[ -f ~/Pictures/${date_formatted}-${counter}.png ]]; do
 done
 
 
-grim -g "$(slurp)" ~/Pictures/${date_formatted}-${counter}.png
+#grim -g "$(slurp)" ~/Pictures/${date_formatted}-${counter}.png
+grimblast --freeze copysave area ~/Pictures/${date_formatted}-${counter}.png
 
 
 swappy -f ~/Pictures/${date_formatted}-${counter}.png 
