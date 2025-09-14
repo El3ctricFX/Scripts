@@ -1,15 +1,22 @@
 
+
+# Get current date in multiple formats
 date_formatted=$(date +%Y-%m-%d)
+date_folder=$(date +"%B-%d-%Y")  # Format: August-23-2025
+date_short=$(date +%Y-%m-%d)     # For filename
+
+# Create directory if it doesn't exist
+screenshot_dir="$HOME/Pictures/$date_folder"
+mkdir -p "$screenshot_dir"
+
+# Find the next available counter
 counter=1
-
-
-while [[ -f ~/Pictures/${date_formatted}-${counter}.png ]]; do
+while [[ -f "$screenshot_dir/${date_short}-${counter}.png" ]]; do
   ((counter++))
 done
 
+# Take screenshot
+grimblast --freeze copysave area "$screenshot_dir/${date_short}-${counter}.png"
 
-#grim -g "$(slurp)" ~/Pictures/${date_formatted}-${counter}.png
-grimblast --freeze copysave area ~/Pictures/${date_formatted}-${counter}.png
-
-
-swappy -f ~/Pictures/${date_formatted}-${counter}.png 
+# Open in swappy for editing
+swappy -f "$screenshot_dir/${date_short}-${counter}.png"
