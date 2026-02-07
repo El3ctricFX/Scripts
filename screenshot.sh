@@ -6,7 +6,7 @@ date_folder=$(date +"%B-%d-%Y")  # Format: August-23-2025
 date_short=$(date +%Y-%m-%d)     # For filename
 
 # Create directory if it doesn't exist
-screenshot_dir="$HOME/Pictures/$date_folder"
+screenshot_dir="$HOME/Pictures/daily/$date_folder"
 mkdir -p "$screenshot_dir"
 
 # Find the next available counter
